@@ -1,0 +1,3 @@
+new EasyEditor({
+  el: '#editor'
+});
