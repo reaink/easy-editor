@@ -5,7 +5,7 @@
   overflow: auto;
 }
 
-.es-editor .es-line {
+.es-editor .es-edit {
   max-width: 100%;
   display: inline-block;
 }
