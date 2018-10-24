@@ -1,11 +1,7 @@
-var tpl = {
-  name: '粗体',
-  tag: 'button',
-  
+window.onload = () => {
+  new EasyEditor({
+    el: '#editor',
+    width: '650px',
+    height: '500px'
+  });
 }
-
-new EasyEditor({
-  el: '#editor',
-  width: '500px',
-  height: '300px'
-});

@@ -1,11 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  border: solid 1px transparent;
+}
+
+button:active {
+  border: solid 1px #555;
+}
+
 .es-editor {
-  width: 500px;
-  height: 300px;
+  width: 700px;
+  height: 520px;
   border: solid 1px #ccc;
-  overflow: auto;
+}
+
+.es-editor iframe {
+  width: 100%;
 }
 
 .es-editor .es-edit {
   max-width: 100%;
   display: inline-block;
+}
+
+.es-controls {
+  position: relative;
+}
+.es-controls .es-contrl-btn {
+  width: 50px;
+  height: 30px;
+  border: solid 1px #ccc;
+  background: #eee;
+  margin: 2px 3px;
+}
+
+.es-controls .es-contrl-btn:active {
+  border: solid 1px #555;
+  background: #bbb;
+  margin: 2px 3px;
+}
+
+.es-controls .es-con {
+  background: #bbb;
+  width: 100px;
+  position: absolute;
+}
+
+.es-controls .es-con .es-font-change {
+  width: 90%;
+  margin: 5px;
+}
+
+.es-controls .es-con-color {
+  width: 110px;
 }
