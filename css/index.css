@@ -3,9 +3,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: top;
+  background: #383A3F;
 }
 
 #editor {
   margin: 50px 0;
-  box-shadow: 0 0 12px rgba(100,100,100, .3);
+  box-shadow: 0 5px 50px #444;
 }

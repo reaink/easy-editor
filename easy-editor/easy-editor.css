@@ -14,7 +14,6 @@ button:active {
 .es-editor {
   width: 700px;
   height: 520px;
-  border: solid 1px #ccc;
 }
 
 .es-editor iframe {
