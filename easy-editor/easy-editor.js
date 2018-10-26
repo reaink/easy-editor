@@ -85,7 +85,7 @@ EasyEditor.prototype = {
     fontPlate.style.display = 'none';
     
     function setFontPlatePos (fontPlate) {
-      fontPlate.style.left = '90px';
+      fontPlate.style.left = '150px';
     }
     
     var sizeRange = this.createBtn('', 'input', 'range', 'change', () => {
@@ -116,7 +116,7 @@ EasyEditor.prototype = {
     colorPlate.style.display = 'none';
 
     function setColorPlatePos (colorPlate) {
-      colorPlate.style.left = '150px';
+      colorPlate.style.left = '200px';
     }
     var _this = this;
     var blackBtn = createColorBtn('black', 'foreColor');
@@ -156,7 +156,7 @@ EasyEditor.prototype = {
     bgPlate.style.display = 'none';
 
     function setBackPlatePos (bgPlate) {
-      bgPlate.style.left = '200px';
+      bgPlate.style.left = '250px';
     }
     var _this = this;
     var blackBtn = createColorBtn('black', 'hiliteColor');
@@ -190,19 +190,55 @@ EasyEditor.prototype = {
       }
     })
 
-
-    //链接按钮
+    //创建链接按钮
     var linkBtn = this.createBtn('链接', 'button', 'button', 'click', () => {
       var href = prompt('请输入链接地址：');
-      this.iframeDoc.execCommand('createLink', false, href);
+      if (href) {
+        var isHttp = href.indexOf('http');
+        if (isHttp === -1) {
+          href = 'http://' + href;
+        }
+        this.iframeDoc.execCommand('createLink', false, href);
+      }
     })
 
+    //插入图片按钮
+    var imageBtn = this.createBtn('图片', 'button', 'button', 'click', () => {
+      var href = prompt('请输入图片地址：');
+      if (href) {
+        var isHttp = href.indexOf('http');
+        if (isHttp === -1) {
+          href = 'http://' + href;
+        }
+        this.iframeDoc.execCommand('insertImage', false, href);
+      }
+    })
 
+    //列表面板
+    var listPlate = this.creEl('div');
+    listPlate.className = 'es-con es-con-listplate';
+    listPlate.style.display = 'none';
 
-    
-    //本项目地址
-    var originBtn = this.createBtn('项目', 'button', 'button', 'click', () => {
-      window.open('https://gitee.com/nshu/EasyEditor');
+    var orderedListBtn = this.createBtn('有序列表', 'button', 'button', 'click', () => {
+      this.iframeDoc.execCommand('insertOrderedList', false, '')
+    })
+    var unorderedListBtn = this.createBtn('有序列表', 'button', 'button', 'click', () => {
+      this.iframeDoc.execCommand('insertUnorderedList', false, '')
+    })
+
+    listPlate.appendChild(orderedListBtn);
+    listPlate.appendChild(unorderedListBtn);
+
+    function setListPlatePos (listPlate) {
+      listPlate.style.left = '410px';
+    }
+    //列表按钮
+    var listBtn = this.createBtn('列表', 'button', 'button', 'click', () => {
+      if (listPlate.style.display === 'none') {
+        listPlate.style.display = 'block'
+      } else {
+        listPlate.style.display = 'none'
+      }
     })
 
 
@@ -222,6 +258,17 @@ EasyEditor.prototype = {
     bgBtn.parentNode.appendChild(bgPlate);
     setBackPlatePos(bgPlate);
     mainCont.appendChild(linkBtn);
+    mainCont.appendChild(imageBtn);
+    //添加设置背景面板、按钮
+    mainCont.appendChild(listPlate);
+    setListPlatePos(listPlate);
+    mainCont.appendChild(listBtn);
+
+
+    //本项目地址
+    var originBtn = this.createBtn('项目', 'button', 'button', 'click', () => {
+      window.open('https://gitee.com/nshu/EasyEditor');
+    })
     mainCont.appendChild(originBtn);
 
     this.editor.appendChild(mainCont);

@@ -56,3 +56,11 @@ button:active {
 .es-controls .es-con-color {
   width: 110px;
 }
+
+.es-controls .es-con-listplate {
+  width: 150px;
+}
+
+.es-controls .es-con-listplate .es-contrl-btn {
+  width: 69px;
+}
